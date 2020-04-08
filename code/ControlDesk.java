@@ -60,22 +60,34 @@ class ControlDesk extends Thread {
     /**
      * Constructor for the ControlDesk class
      *
-     * @param numlanes	the numbler of lanes to be represented
+     <!-- *parameter numlane => the numbler of lanes to be represented -->
      *
      */
 
 	public ControlDesk(int numLanes) {
 		this.numLanes = numLanes;
+		// initialised the number of lanes variable of the class
+
 		lanes = new HashSet(numLanes);
+		// The lanes are to be represented in the form of a Hashset in java 
+
+		
 		partyQueue = new Queue();
+		// the party queue is to be represented in the form of a queue ( signifying how ppl are gonna be in a queue to participate in the bowling arena )
 
 		subscribers = new Vector();
+		// we are gonna show the subscribers using the vector data structure in java
 
 		for (int i = 0; i < numLanes; i++) {
 			lanes.add(new Lane());
 		}
+
+		// so, in the lanes Hashset, we add the lanes equal to the number of lanes 
 		
 		this.start();
+
+		// then we call the start method, showing that we are starting the game 
+
 
 	}
 	
@@ -87,10 +99,19 @@ class ControlDesk extends Thread {
 		while (true) {
 			
 			assignLane();
+			// so we run the assignlane function
+			// this seems to be the mail guy doing everything.
+			// Dunno why we have a sleep of 250 tho, 
+			// it seems we are waiting for some sort of action here every 250 time units at a time. 
+			// and then when something happens, we take approprite action and start over, 
 			
 			try {
 				sleep(250);
-			} catch (Exception e) {}
+			} 
+			catch (Exception e) {
+				// this one is an empty one 
+			}
+
 		}
 	}
 		
