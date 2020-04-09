@@ -19,14 +19,14 @@ public class Score {
     }
 
     public String getNickName() {
-        return nick;  
+        return nick;             //getter function to get Nickname
     }
 
-	public String getDate() {
+	public String getDate() {  // //getter function to get Date
 		return date;
 	}
 	
-	public String getScore() {
+	public String getScore() { //getter function to get Score
 		return score;
 	}
 

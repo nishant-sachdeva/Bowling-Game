@@ -1,17 +1,3 @@
-/*  $Id$
- *
- *  Revisions:
- *    $Log: PinsetterEvent.java,v $
- *    Revision 1.2  2003/01/26 22:34:44  ???
- *    Total rewrite of lane and pinsetter for R2's observer model
- *    Added Lane/Pinsetter Observer
- *    Rewrite of scoring algorythm in lane
- *
- *    Revision 1.1  2003/01/19 21:04:24  ???
- *    created pinsetterevent and pinsetterobserver
- *
- */
-
 public class PinsetterEvent {
 
 	private boolean[] pinsStillStanding;
