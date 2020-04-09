@@ -21,10 +21,9 @@
  */
 
 /**
- *  Class that is the outer container for the bowling simulator 
+ *  Class that is the outer container for the bowling sim
  *
  */
-
 
 public class Alley {
 	public ControlDesk controldesk;
@@ -41,4 +40,3 @@ public class Alley {
 
 
     
-// so the alley class initialises a control desk , and upon teh getControlDesk being called ,returns that control desk

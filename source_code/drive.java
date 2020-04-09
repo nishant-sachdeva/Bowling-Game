@@ -5,14 +5,17 @@ public class drive {
 
 	public static void main(String[] args) {
 
-		int numLanes = 3;  // this seems to specify the number of possible lanes 
-		int maxPatronsPerParty=5;  // this seesms to be the place where we specifly the M-plicity ( Max number of players that can take part in the multiplayer )
+		int numLanes = 3;
+		int maxPatronsPerParty=6; 
 
-		Alley a = new Alley( numLanes );
-		ControlDesk controlDesk = a.getControlDesk();
+		// making the number of players as 6 is the least that we need to do I guess
 
-		ControlDeskView cdv = new ControlDeskView( controlDesk, maxPatronsPerParty);
-		controlDesk.subscribe( cdv );
+		ControlDesk controlDesk = new ControlDesk(numLanes);
+		// we need the control desk, hence I am getting one. Noone needs different bowling alleys in a game for a single bowling alley hence I have removed the alley line 
+
+		controlDesk.subscribe( new ControlDeskView( controlDesk, maxPatronsPerParty) );
+		// Before we launch the game, we need sort of view of how the thing is gonna look like , hence the controlDeskview invocation and finally passing onto the subscribe function
+		
 
 	}
 }

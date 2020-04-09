@@ -23,31 +23,40 @@ import java.util.*;
 
 public class ControlDeskView implements ActionListener, ControlDeskObserver {
 
-	private JButton addParty, finished, assign;
-	private JFrame win;
-	private JList partyList;
+	private JButton addParty, finished, assign;  // these look like the buttons
+
+	private JFrame win; // short for window, this seems to be the place where everything is gonna be displayed
+
+	private JList partyList; // this is gonna be the list of the member of the party, at least that's what it looks like
 	
-	/** The maximum  number of members in a party */
+	/** The maximum  number of members in a party : we have changed this to a 6 in the prev file */
 	private int maxMembers;
 	
-	private ControlDesk controlDesk;
+	private ControlDesk controlDesk; // this is the control desk that we are gonna decorate and display now
 
 	/**
-	 * Displays a GUI representation of the ControlDesk
+	 * Displays a GUI representation of the ControlDesk : I have  a feeling, this is where I am gonna implement the multiplayer thing after all
+
 	 *
 	 */
 
 	public ControlDeskView(ControlDesk controlDesk, int maxMembers) {
 
-		this.controlDesk = controlDesk;
-		this.maxMembers = maxMembers;
-		int numLanes = controlDesk.getNumLanes();
+		this.controlDesk = controlDesk; // so here we assign the controlDesk
 
-		win = new JFrame("Control Desk");
-		win.getContentPane().setLayout(new BorderLayout());
+		this.maxMembers = maxMembers; // here go the members, I do not know how are they getting this number tho, 
+		
+		int numLanes = controlDesk.getNumLanes(); // I remember seeing this function, It returns the number of lanes here. Altho, we could have simply given it that number as it is
+
+
+		win = new JFrame("Control Desk"); // The new frame that is gonna be decorated
+
+		win.getContentPane().setLayout(new BorderLayout()); //
+
 		((JPanel) win.getContentPane()).setOpaque(false);
 
 		JPanel colPanel = new JPanel();
+
 		colPanel.setLayout(new BorderLayout());
 
 		// Controls Panel
@@ -55,7 +64,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		controlsPanel.setLayout(new GridLayout(3, 1));
 		controlsPanel.setBorder(new TitledBorder("Controls"));
 
-		addParty = new JButton("Add Party");
+		addParty = new JButton("Start a new Tourney");
 		JPanel addPartyPanel = new JPanel();
 		addPartyPanel.setLayout(new FlowLayout());
 		addParty.addActionListener(this);
@@ -69,7 +78,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		assignPanel.add(assign);
 //		controlsPanel.add(assignPanel);
 
-		finished = new JButton("Finished");
+		finished = new JButton("Ight, Ima head out");
 		JPanel finishedPanel = new JPanel();
 		finishedPanel.setLayout(new FlowLayout());
 		finished.addActionListener(this);
@@ -81,16 +90,27 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		laneStatusPanel.setLayout(new GridLayout(numLanes, 1));
 		laneStatusPanel.setBorder(new TitledBorder("Lane Status"));
 
-		HashSet lanes=controlDesk.getLanes();
+		HashSet lanes = controlDesk.getLanes();
 		Iterator it = lanes.iterator();
-		int laneCount=0;
+		
+		int laneCount = 0;  // initialising the lane count. 
+		
 		while (it.hasNext()) {
+			// this looks like the loop that is gonna have to be parallelised so that I get a multiplayer game 
 			Lane curLane = (Lane) it.next();
+
 			LaneStatusView laneStat = new LaneStatusView(curLane,(laneCount+1));
+
 			curLane.subscribe(laneStat);
+
 			((Pinsetter)curLane.getPinsetter()).subscribe(laneStat);
+
 			JPanel lanePanel = laneStat.showLane();
-			lanePanel.setBorder(new TitledBorder("Lane" + ++laneCount ));
+
+			System.out.println("Yo Mami, me is here. Let's study what the code has been doing"); 
+
+			lanePanel.setBorder(new TitledBorder("Lane Number " + ++laneCount ));
+
 			laneStatusPanel.add(lanePanel);
 		}
 
