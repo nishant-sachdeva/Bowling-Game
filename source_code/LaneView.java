@@ -10,6 +10,9 @@ import java.util.*;
 
 public class LaneView implements LaneObserver, ActionListener {
 
+	// this particular file talks about the various things that go into the Lane view class, i.e the various things taht go into hte final view that we see
+
+
 	private int roll;
 	private boolean initDone = true;
 
@@ -25,6 +28,10 @@ public class LaneView implements LaneObserver, ActionListener {
 	JLabel[][] scoreLabel;
 	JPanel[][] ballGrid;
 	JPanel[] pins;
+
+	// here wer have initialised the various panels that we are gonna display in the final file . 
+
+
 
 	JButton maintenance;
 	Lane lane;
@@ -55,6 +62,7 @@ public class LaneView implements LaneObserver, ActionListener {
 	public void hide() {
 		frame.hide();
 	}
+	// these function are simple utility functions 
 
 	private JPanel makeFrame(Party party) {
 

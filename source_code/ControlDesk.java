@@ -136,7 +136,7 @@ class ControlDesk extends Thread {
 			Lane curLane = (Lane) it.next();
 
 			if (curLane.isPartyAssigned() == false) {
-				System.out.println("ok... assigning this party");
+				System.out.println("ok... assigning this party. This is where the dude is being assigned I believe");
 				curLane.assignParty(((Party) partyQueue.next()));
 			}
 		}

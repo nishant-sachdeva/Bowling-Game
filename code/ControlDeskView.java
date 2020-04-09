@@ -76,7 +76,6 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		assignPanel.setLayout(new FlowLayout());
 		assign.addActionListener(this);
 		assignPanel.add(assign);
-//		controlsPanel.add(assignPanel);
 
 		finished = new JButton("Ight, Ima head out");
 		JPanel finishedPanel = new JPanel();
@@ -96,7 +95,10 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		int laneCount = 0;  // initialising the lane count. 
 		
 		while (it.hasNext()) {
-			// this looks like the loop that is gonna have to be parallelised so that I get a multiplayer game 
+			
+
+			// so this is the loop that deals with every lane, i.e . every party that there is.
+
 			Lane curLane = (Lane) it.next();
 
 			LaneStatusView laneStat = new LaneStatusView(curLane,(laneCount+1));
@@ -109,7 +111,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 
 			System.out.println("Yo Mami, me is here. Let's study what the code has been doing"); 
 
-			lanePanel.setBorder(new TitledBorder("Lane Number " + ++laneCount ));
+			lanePanel.setBorder(new TitledBorder("Lane Number : Or whatever you may wanna call it tbh" + ++laneCount ));
 
 			laneStatusPanel.add(lanePanel);
 		}
@@ -117,7 +119,7 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		// Party Queue Panel
 		JPanel partyPanel = new JPanel();
 		partyPanel.setLayout(new FlowLayout());
-		partyPanel.setBorder(new TitledBorder("Party Queue"));
+		partyPanel.setBorder(new TitledBorder("Party Queue : Or whatever you may wanna call it"));
 
 		Vector empty = new Vector();
 		empty.add("(Empty)");
@@ -139,6 +141,8 @@ public class ControlDeskView implements ActionListener, ControlDeskObserver {
 		win.getContentPane().add("Center", colPanel);
 
 		win.pack();
+
+		System.out.println("This statement is here because I want to check how many times is this file being called. Will need to see how many times it is being printed");
 
 		/* Close program when this window closes */
 		win.addWindowListener(new WindowAdapter() {

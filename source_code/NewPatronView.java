@@ -45,8 +45,8 @@ public class NewPatronView implements ActionListener {
 		addParty=v;	
 		done = false;
 
-		win = new JFrame("Add Patron");
-		win.getContentPane().setLayout(new BorderLayout());
+		win = new JFrame("Add Patron"); // this is init for adding the new frame 
+		win.getContentPane().setLayout(new BorderLayout()); // this is for the giving the layouts to the final file. 
 		((JPanel) win.getContentPane()).setOpaque(false);
 
 		JPanel colPanel = new JPanel();
@@ -55,25 +55,25 @@ public class NewPatronView implements ActionListener {
 		// Patron Panel
 		JPanel patronPanel = new JPanel();
 		patronPanel.setLayout(new GridLayout(3, 1));
-		patronPanel.setBorder(new TitledBorder("Your Info"));
+		patronPanel.setBorder(new TitledBorder("Here , we display Your Info"));
 
 		JPanel nickPanel = new JPanel();
 		nickPanel.setLayout(new FlowLayout());
-		nickLabel = new JLabel("Nick Name");
+		nickLabel = new JLabel("YOUOURE Nick Name, we'll we'd name you something else, but what the hell, have it your way");
 		nickField = new JTextField("", 15);
 		nickPanel.add(nickLabel);
 		nickPanel.add(nickField);
 
 		JPanel fullPanel = new JPanel();
 		fullPanel.setLayout(new FlowLayout());
-		fullLabel = new JLabel("Full Name");
+		fullLabel = new JLabel("Mr . Full Name");
 		fullField = new JTextField("", 15);
 		fullPanel.add(fullLabel);
 		fullPanel.add(fullField);
 
 		JPanel emailPanel = new JPanel();
 		emailPanel.setLayout(new FlowLayout());
-		emailLabel = new JLabel("E-Mail");
+		emailLabel = new JLabel("Please enter your E-Mail");
 		emailField = new JTextField("", 15);
 		emailPanel.add(emailLabel);
 		emailPanel.add(emailField);
@@ -81,6 +81,8 @@ public class NewPatronView implements ActionListener {
 		patronPanel.add(nickPanel);
 		patronPanel.add(fullPanel);
 		patronPanel.add(emailPanel);
+
+		// these are sections to add the various parts of the final pane 
 
 		// Button Panel
 		JPanel buttonPanel = new JPanel();
@@ -102,6 +104,9 @@ public class NewPatronView implements ActionListener {
 
 		buttonPanel.add(abortPanel);
 		buttonPanel.add(finishedPanel);
+
+		// this seciton was for the code to write out exit conditions for the class . 
+
 
 		// Clean up main panel
 		colPanel.add(patronPanel, "Center");
@@ -134,6 +139,8 @@ public class NewPatronView implements ActionListener {
 			addParty.updateNewPatron( this );
 			win.hide();
 		}
+		// here , we check what all actions are being performed by the code , basically a track of the various actions taken by the users
+
 
 	}
 
@@ -152,5 +159,8 @@ public class NewPatronView implements ActionListener {
 	public String getEmail() {
 		return email;
 	}
+
+	// these are simple utility functions for return the vairous constants of the class
+	
 
 }
